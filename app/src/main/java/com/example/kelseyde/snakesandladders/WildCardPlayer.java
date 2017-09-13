@@ -1,12 +1,14 @@
 package com.example.kelseyde.snakesandladders;
 
 
-public class Player implements Movable{
+import java.util.Random;
+
+public class WildCardPlayer {
 
     private String name;
     private int position;
 
-    public Player(String name) {
+    public WildCardPlayer(String name) {
         this.name = name;
         this.position = 0;
     }
@@ -29,14 +31,15 @@ public class Player implements Movable{
         this.position = position;
     }
 
-    //methods
-
     public int move(int spaces) {
-        position += spaces;
+        Random rand = new Random(2);
+        int wildCard = rand.nextInt( 2 - 1 ) + 1;
+        if (wildCard == 1) {
+            position += (spaces / 2);
+        } else {
+            position += (spaces * 2);
+        }
         return position;
     }
-
-
-
 
 }

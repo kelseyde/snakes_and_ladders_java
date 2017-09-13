@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public class Game implements Playable {
 
     private Rollable dice;
-    private ArrayList<Player> players;
+    private ArrayList<Movable> players;
     private Board board;
-    private Player currentPlayer;
+    private Movable currentPlayer;
 
-    public Game(Rollable dice, ArrayList<Player> players, Board board) {
+    public Game(Rollable dice, ArrayList<Movable> players, Board board) {
         this.dice = dice;
         this.players = players;
         this.board = board;
@@ -27,11 +27,11 @@ public class Game implements Playable {
         this.dice = dice;
     }
 
-    public ArrayList<Player> getPlayers() {
+    public ArrayList<Movable> getPlayers() {
         return players;
     }
 
-    public void setPlayers(ArrayList<Player> players) {
+    public void setPlayers(ArrayList<Movable> players) {
         this.players = players;
     }
 
@@ -43,7 +43,7 @@ public class Game implements Playable {
         this.board = board;
     }
 
-    public Player getCurrentPlayer() {
+    public Movable getCurrentPlayer() {
         return currentPlayer;
     }
 
@@ -55,7 +55,7 @@ public class Game implements Playable {
 
     public boolean hasWon() {
         boolean hasWon = false;
-        for (Player player : players) {
+        for (Movable player : players) {
             if (player.getPosition() >= board.getWinTile()) {
                 hasWon = true;
             }
@@ -93,8 +93,8 @@ public class Game implements Playable {
         hasWon();
     }
 
-    public Player playGame() {
-        Player winner = null;
+    public Movable playGame() {
+        Movable winner = null;
         while ( !hasWon() ) {
             playTurn();
             winner = currentPlayer;

@@ -25,7 +25,7 @@ public class Dice implements Rollable{
 
     public Integer roll() {
         Random rand = new Random(sides);
-        Integer randomNumber = rand.nextInt( 6 - 1 ) + 1;
+        Integer randomNumber = rand.nextInt( sides - 1 ) + 1;
         return randomNumber;
     }
 

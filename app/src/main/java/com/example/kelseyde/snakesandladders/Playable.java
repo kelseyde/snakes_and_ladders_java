@@ -11,10 +11,6 @@ public interface Playable {
 
     Integer movePlayer(Integer diceRoll);
 
-//    void startGame();
-
-
-
-
+    Movable playGame();
 
 }
